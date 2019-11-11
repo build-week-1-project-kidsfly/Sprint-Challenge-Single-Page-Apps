@@ -1,19 +1,3 @@
-// import React, { useEffect, useState } from "react";
-//
-// export default function CharacterList() {
-//   // TODO: Add useState to track data from useEffect
-//
-//   useEffect(() => {
-//     // TODO: Add API Request here - must run in `useEffect`
-//     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-//   }, []);
-//
-//   return (
-//     <section className="character-list">
-//       <h2>TODO: `array.map()` over your state here!</h2>
-//     </section>
-//   );
-// }
 import React from "react";
 import CharacterCard from "./CharacterCard";
 import { Link } from "react-router-dom";
@@ -23,3 +7,25 @@ const HomeLink = styled.h3`
     text-align: center;
     padding: 20px;
 `;
+
+const CharacterList = props => {
+    const { character } = props;
+    return (
+        <div>
+            <HomeLink>
+                <Link to="/">Home</Link>
+            </HomeLink>
+            <div className="cards">
+                {character.map(item => {
+                    const { id, image, name, species, status } = item;
+                    return <CharacterCard key={id} img={image} name={name} species={species} status={status} />
+                })}
+            </div>
+            <HomeLink>
+                <Link to="/">Home</Link>
+            </HomeLink>
+        </div>
+    );
+};
+
+export default CharacterList;
