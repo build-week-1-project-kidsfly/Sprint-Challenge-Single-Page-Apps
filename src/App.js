@@ -20,26 +20,27 @@ export default function App() {
             axios.get('https://rickandmortyapi.com/api/episode')
         ])
             .then(axios.spread((cRes, lRes, eRes) =>{
-                setInfo(cRes.data.results)
-                setLocation(lRes.data.results)
+                setInfo(cRes.data.results);
+                setLocation(lRes.data.results);
                 setEpisode(eRes.data.results)
             }))
-    },[])
+    },[]);
+    console.log(info);
 
   return (
     <main>
       <Header />
       <Route exact path="/" component={ TabExampleBasic } />
 
-      <Route exact path="/characters" render={props => (
+      <Route path="/characters" render={props => (
           <CharacterList {...props} character={info} />
       )} />
 
-      <Route exact path="/location" render={props => (
+      <Route path="/location" render={props => (
           <LocationList {...props} location={location} />
       )} />
 
-      <Route exact path="/episode" render={props => (
+      <Route path="/episode" render={props => (
           <EpisodeList {...props} episode={episode} />
       )} />
     </main>
