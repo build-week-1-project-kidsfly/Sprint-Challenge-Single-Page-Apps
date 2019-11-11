@@ -11,9 +11,20 @@ const panes = [
         </Tab.Pane> },
     { menuitem: 'Characters', render: () =>
         <Tab.Pane>
-            <Link className="">Enter Characters</Link>
+            <Link className="charac-title" to="/characters">Enter Characters</Link>
             <br/>
-            <img/>
+            <img className="main-pic" src="https://rick-api.herokuapp.com/api/character/avatar/2.jpeg" alt="location-pic" />
+        </Tab.Pane> },
+    { menuitem: 'Locations', render: () =>
+        <Tab.Pane>
+            <Link className="charac-title" to="/location">Enter Locations</Link>
+            <br/>
+            <img className="main-pic" src="https://rick-api.herokuapp.com/api/character/avatar/3.jpeg" />
+        </Tab.Pane> },
+    { menuitem: 'Episodes', render: () => <Tab.Pane>
+            <Link className="charac-title" to="/episode">Enter Episodes</Link>
+            <br/>
+            <img className="main-pic" src="https://rickandmortyapi.com/api/character/avatar/7.jpeg" />
         </Tab.Pane> },
 ];
 
