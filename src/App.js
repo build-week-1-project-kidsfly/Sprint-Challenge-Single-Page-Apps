@@ -29,6 +29,19 @@ export default function App() {
   return (
     <main>
       <Header />
+      <Route exact path="/" component={ TabExampleBasic } />
+
+      <Route exact path="/characters" render={props => (
+          <CharacterList {...props} character={info} />
+      )} />
+
+      <Route exact path="/location" render={props => (
+          <LocationList {...props} location={location} />
+      )} />
+
+      <Route exact path="/episode" render={props => (
+          <EpisodeList {...props} episode={episode} />
+      )} />
     </main>
   );
 }
