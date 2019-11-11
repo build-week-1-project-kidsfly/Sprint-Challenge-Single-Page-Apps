@@ -1,5 +1,5 @@
 import React from "react";
-import CharacterCard from "./CharacterCard";
+import EpisodeCard from "./EpisodeCard";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -8,17 +8,17 @@ const HomeLink = styled.h3`
     padding: 20px;
 `;
 
-const CharacterList = props => {
-    const { character } = props;
+const EpisodeList = props => {
+    const { episode } = props;
     return (
         <div>
             <HomeLink>
                 <Link to="/">Home</Link>
             </HomeLink>
             <div className="cards">
-                {character.map(item => {
-                    const { id, image, name, species, status } = item;
-                    return <CharacterCard key={id} img={image} name={name} species={species} status={status} />
+                {episode.map(item => {
+                    const { id, name, air_date, episode } = item
+                    return <EpisodeCard key={id} name={name} air_date={`Aired on ${air_date}`} episode={`Episode #: ${episode}`} />
                 })}
             </div>
             <HomeLink>
@@ -28,4 +28,4 @@ const CharacterList = props => {
     );
 };
 
-export default CharacterList;
+export default EpisodeList;
